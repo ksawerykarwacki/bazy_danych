@@ -1,0 +1,29 @@
+#Fri Oct 09 18:42:45 CEST 2020
+
+datasources:
+    default:
+        url: jdbc:oracle:thin:@localhost:1521/xe
+        driverClassName: oracle.jdbc.OracleDriver
+        username: app
+        password: app
+        schema-generate: none
+        dialect: ORACLE
+
+
+flyway:
+    datasources:
+        default:
+            enabled: true
+
+jpa:
+    default:
+        packages-to-scan:
+        - 'database.application'
+        properties:
+            hibernate:
+                show_sql: true
+                hbm2ddl:
+                    auto: update
+                #          auto: validate
+                #          auto: none
+            generate_statistics: true
