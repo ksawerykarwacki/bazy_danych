@@ -1,18 +1,12 @@
-## Feature testcontainers documentation
+Oracle podniesiony na porcie 1521 i z sidem xe. jezeli inny zmień w src/man/resources/application.yaml (linia 5)
 
-- [https://www.testcontainers.org/](https://www.testcontainers.org/)
+Do uruchomienia potrzebny przygotowany pusty schemat aplikacji w bazie, z uzytkownika systemowego zawolac: 
 
-## Feature jdbc-hikari documentation
+`create user app identified by app;`
 
-- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
+`grant dba to app;`
 
-## Feature flyway documentation
+po wszystkm zawolac z intellij run z gradle'a lub z konsoli wpisac `./gradlew clean run`
 
-- [Micronaut Flyway Database Migration documentation](https://micronaut-projects.github.io/micronaut-flyway/latest/guide/index.html)
-
-- [https://flywaydb.org/](https://flywaydb.org/)
-
-## Feature http-client documentation
-
-- [Micronaut Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+Przy pierwszym uruchomieniu powinien zainstalowac sie schemat bazy z nasza appka
 
