@@ -1,11 +1,7 @@
 package database.application.stanowiska;
 
-import database.application.Clicks;
 import database.application.tabs.Tabs;
 import io.micronaut.context.ApplicationContext;
-import io.micronaut.data.annotation.Repository;
-import io.micronaut.runtime.Micronaut;
-import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -17,7 +13,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Arrays;
 import java.util.Locale;

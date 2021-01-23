@@ -2,7 +2,6 @@ package database.application.stanowiska;
 
 import database.application.DecimalTextFormatter;
 import database.application.tabs.Tabs;
-import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Prototype;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

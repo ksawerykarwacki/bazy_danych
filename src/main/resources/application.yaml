@@ -26,4 +26,7 @@ jpa:
                     auto: update
                 #          auto: validate
                 #          auto: none
-            generate_statistics: true
+
+micronaut:
+    server:
+        port: -1
