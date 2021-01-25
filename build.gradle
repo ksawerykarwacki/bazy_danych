@@ -37,6 +37,7 @@ dependencies {
     runtimeOnly("com.oracle.database.jdbc:ojdbc8")
     testImplementation(platform("org.testcontainers:testcontainers-bom:1.14.3"))
     testRuntimeOnly("org.testcontainers:oracle-xe")
+    implementation("com.google.guava:guava:30.1-jre")
 }
 
 mainClassName = "database.application.Application"

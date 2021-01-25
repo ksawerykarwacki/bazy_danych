@@ -22,8 +22,6 @@ import java.util.Locale;
 @Singleton
 public class StanowiskaScreen extends BaseScreen<Stanowisko, StanowiskaRepository, StanowiskoEditScreen> {
 
-
-
     public StanowiskaScreen(Tabs tabs, StanowiskaRepository repository, ApplicationContext applicationContext) {
         super(tabs, repository, applicationContext, StanowiskoEditScreen.class);
 
@@ -41,7 +39,7 @@ public class StanowiskaScreen extends BaseScreen<Stanowisko, StanowiskaRepositor
 
         scrollPane.setContent(table);
 
-        this.addRow(1, scrollPane);
+        this.addRow(1, table);
 
     }
 }

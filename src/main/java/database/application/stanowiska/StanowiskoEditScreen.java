@@ -16,10 +16,11 @@ import javafx.scene.layout.GridPane;
 import javax.inject.Inject;
 
 @Prototype
-public class StanowiskoEditScreen extends BaseEditScreen<Stanowisko> {
+public class StanowiskoEditScreen extends BaseEditScreen<Stanowisko, StanowiskaRepository> {
 
     @Inject
     StanowiskaRepository repository;
+
     Stanowisko stanowisko;
     private final TextField stanowiskoField;
     private final TextField wynagrodzenieField;
@@ -58,7 +59,7 @@ public class StanowiskoEditScreen extends BaseEditScreen<Stanowisko> {
             } else {
                 repository.update(stanowisko);
             }
-            tabs.openStanowiska();
+            tabs.open(StanowiskaScreen.class);
             tabs.getTabs().remove(this);
         };
     }

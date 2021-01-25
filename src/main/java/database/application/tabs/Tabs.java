@@ -1,6 +1,7 @@
 package database.application.tabs;
 
 import database.application.Application;
+import database.application.base.BaseScreen;
 import database.application.stanowiska.StanowiskaScreen;
 import io.micronaut.context.ApplicationContext;
 import javafx.scene.control.Tab;
@@ -17,17 +18,17 @@ public class Tabs extends TabPane {
     @Inject
     ApplicationContext applicationContext;
 
-    public void openStanowiska() {
-        Tab tab = this.getTabs().stream().filter(t->t.getContent() instanceof StanowiskaScreen).findFirst().orElse(null);
+     public <S extends BaseScreen> void open(Class<S> sClass) {
+        Tab tab = this.getTabs().stream().filter(t->t.getContent().getClass() == sClass).findFirst().orElse(null);
         if(tab != null) {
             log.info("Found existing");
             this.getSelectionModel().select(tab);
-            ((StanowiskaScreen) tab.getContent()).refreshData();
+            ((S) tab.getContent()).refreshData();
         }
         else {
-            StanowiskaScreen screen = applicationContext.getBean(StanowiskaScreen.class);
+            S screen = applicationContext.getBean(sClass);
             screen.refreshData();
-            tab = new Tab("Stanowiska", screen);
+            tab = new Tab(sClass.getSimpleName().replace("Screen", ""), screen);
             this.getTabs().add(tab);
             this.getSelectionModel().select(tab);
         }

@@ -1,5 +1,6 @@
 package database.application;
 
+import database.application.lokale.LokaleScreen;
 import database.application.stanowiska.StanowiskaScreen;
 import database.application.tabs.Tabs;
 import io.micronaut.context.ApplicationContext;
@@ -53,10 +54,15 @@ public class Application extends javafx.application.Application {
 
         Menu hr = new Menu("HR");
         MenuItem stanowiska = new MenuItem("Stanowiska");
-        stanowiska.setOnAction(event -> tabs.openStanowiska());
+        stanowiska.setOnAction(event -> tabs.open(StanowiskaScreen.class));
         hr.getItems().add(stanowiska);
 
-        menuBar.getMenus().add(hr);
+        Menu zarzadzanieLokalami = new Menu("Zarzadzanie lokalami");
+        MenuItem lokale = new MenuItem("Lokale");
+        lokale.setOnAction(event -> tabs.open(LokaleScreen.class));
+        zarzadzanieLokalami.getItems().add(lokale);
+
+        menuBar.getMenus().addAll(hr, zarzadzanieLokalami);
         //menu = new VBox(label, stanowiska);
 
         wrapper = new VBox(menuBar, tabs);

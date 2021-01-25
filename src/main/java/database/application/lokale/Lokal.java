@@ -17,6 +17,6 @@ public class Lokal {
     private String miasto;
     private String kodPocztowy;
     @Column(name = "powierzchnia_w_m2")
-    private Integer powierzchniaWm2;
+    private Float powierzchnia;
     private Integer miejscaDlaKlientow;
 }
