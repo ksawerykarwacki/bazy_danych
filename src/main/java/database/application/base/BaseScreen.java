@@ -29,8 +29,8 @@ public abstract class BaseScreen<T, R extends CrudRepository<T, Integer>, E exte
     protected final TableView<T> table;
     protected final FlowPane flowPane;
 
-    public BaseScreen(Tabs tabs, R repository, ApplicationContext applicationContext, Class<E> editSreen) {
-        eClass = editSreen;
+    public BaseScreen(Tabs tabs, R repository, ApplicationContext applicationContext, Class<E> editScreen) {
+        eClass = editScreen;
         this.tabs = tabs;
         this.repository = repository;
         this.applicationContext = applicationContext;
@@ -42,6 +42,11 @@ public abstract class BaseScreen<T, R extends CrudRepository<T, Integer>, E exte
         flowPane.setPadding(new Insets(15));
         flowPane.setHgap(10);
         addButtons();
+        this.addRow(0, flowPane);
+        table.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
+        scrollPane.setContent(table);
+
+        this.addRow(1, table);
     }
 
     public void refreshData() {

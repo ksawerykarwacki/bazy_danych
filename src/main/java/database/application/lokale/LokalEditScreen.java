@@ -49,7 +49,6 @@ public class LokalEditScreen extends BaseEditScreen<Lokal, LokaleRepository> {
         grid.add(miejsca, 1, 4);
 
         grid.add(getSaveButton(), 4, 5);
-        this.setContent(grid);
     }
 
     @Override
@@ -60,6 +59,7 @@ public class LokalEditScreen extends BaseEditScreen<Lokal, LokaleRepository> {
         this.kodPocztowy.setText(lokal.getKodPocztowy());
         this.powierzchnia.setText(lokal.getPowierzchnia().toString());
         this.miejsca.setText(lokal.getMiejscaDlaKlientow().toString());
+        this.setText(lokal.getMiasto() + " " + lokal.getAdres());
     }
 
     @Override

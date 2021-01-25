@@ -26,6 +26,7 @@ public abstract class BaseEditScreen<T, R extends CrudRepository<T, Integer>> ex
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
+        this.setContent(grid);
     }
 
     public abstract void loadData(T object);

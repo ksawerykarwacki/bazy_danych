@@ -25,21 +25,11 @@ public class StanowiskaScreen extends BaseScreen<Stanowisko, StanowiskaRepositor
     public StanowiskaScreen(Tabs tabs, StanowiskaRepository repository, ApplicationContext applicationContext) {
         super(tabs, repository, applicationContext, StanowiskoEditScreen.class);
 
-
-        this.addRow(0, flowPane);
-        table.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
-
         for(String columnName : Arrays.asList("Stanowisko", "Wynagrodzenie")) {
             TableColumn t = new TableColumn<>(columnName);
             t.setCellValueFactory(new PropertyValueFactory<>(columnName.toLowerCase(Locale.ROOT)));
             table.getColumns().add(t);
         }
-
-
-
-        scrollPane.setContent(table);
-
-        this.addRow(1, table);
 
     }
 }

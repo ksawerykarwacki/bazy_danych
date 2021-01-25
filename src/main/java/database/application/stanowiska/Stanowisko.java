@@ -15,4 +15,9 @@ public class Stanowisko {
     private Integer id;
     String stanowisko;
     Double wynagrodzenie;
+
+    @Override
+    public String toString() {
+        return this.getStanowisko();
+    }
 }

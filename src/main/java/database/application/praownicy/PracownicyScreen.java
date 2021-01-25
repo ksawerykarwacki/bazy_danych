@@ -1,32 +1,27 @@
-package database.application.lokale;
+package database.application.praownicy;
 
 import com.google.common.base.CaseFormat;
 import database.application.base.BaseScreen;
-import database.application.stanowiska.StanowiskaRepository;
-import database.application.stanowiska.StanowiskoEditScreen;
 import database.application.tabs.Tabs;
 import io.micronaut.context.ApplicationContext;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Singleton;
 import java.util.Arrays;
 import java.util.Locale;
 
-@Slf4j
 @Singleton
-public class LokaleScreen extends BaseScreen<Lokal, LokaleRepository, LokalEditScreen> {
+public class PracownicyScreen extends BaseScreen<Pracownik, PracownicyRepository, PracownikEditScreen> {
 
-    public LokaleScreen(Tabs tabs, LokaleRepository repository, ApplicationContext applicationContext) {
-        super(tabs, repository, applicationContext, LokalEditScreen.class);
 
-        for(String columnName : Arrays.asList("Adres", "Miasto", "Kod pocztowy", "Powierzchnia", "Miejsca dla klientow")) {
+    public PracownicyScreen(Tabs tabs, PracownicyRepository repository, ApplicationContext applicationContext) {
+        super(tabs, repository, applicationContext, PracownikEditScreen.class);
+
+        for(String columnName : Arrays.asList("Imie", "Nazwisko", "Lokal", "Stanowisko", "Data zatrudnienia")) {
             TableColumn t = new TableColumn<>(columnName);
             t.setCellValueFactory(new PropertyValueFactory<>(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, columnName.toLowerCase(Locale.ROOT).replace(" ", "_"))));
             table.getColumns().add(t);
         }
-
     }
 }

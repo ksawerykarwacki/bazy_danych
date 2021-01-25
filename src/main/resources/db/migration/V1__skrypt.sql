@@ -31,14 +31,14 @@ CREATE TABLE pracownicy (
     id                 NUMBER(7, 0),
     imie               VARCHAR2(30) NOT NULL,
     nazwisko           VARCHAR2(30) NOT NULL,
-    lokal              NUMBER(5, 0) NOT NULL,
-    stanowisko         NUMBER(3, 0) NOT NULL,
+    lokal_id              NUMBER(5, 0) NOT NULL,
+    stanowisko_id         NUMBER(3, 0) NOT NULL,
     data_zatrudnienia  DATE NOT NULL,
     PRIMARY KEY ( id ),
-    FOREIGN KEY ( lokal )
+    FOREIGN KEY ( lokal_id )
         REFERENCES lokale ( id )
             ON DELETE CASCADE,
-    FOREIGN KEY ( stanowisko )
+    FOREIGN KEY ( stanowisko_id )
         REFERENCES stanowiska ( id )
             ON DELETE CASCADE
 );

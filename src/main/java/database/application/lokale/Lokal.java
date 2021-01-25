@@ -19,4 +19,10 @@ public class Lokal {
     @Column(name = "powierzchnia_w_m2")
     private Float powierzchnia;
     private Integer miejscaDlaKlientow;
+
+
+    @Override
+    public String toString() {
+        return this.getMiasto() + " " + this.getKodPocztowy() + ", " + this.getAdres();
+    }
 }

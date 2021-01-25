@@ -46,7 +46,6 @@ public class StanowiskoEditScreen extends BaseEditScreen<Stanowisko, StanowiskaR
 
 
         grid.add(getSaveButton(), 4, 4);
-        this.setContent(grid);
     }
 
     @Override
