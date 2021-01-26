@@ -7,6 +7,7 @@ import database.application.praownicy.PracownicyScreen;
 import database.application.skladniki.SkladnikiScreen;
 import database.application.stanowiska.StanowiskaScreen;
 import database.application.tabs.Tabs;
+import database.application.zapasy.ZapasyScreen;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.runtime.Micronaut;
 import javafx.event.EventHandler;
@@ -59,16 +60,19 @@ public class Application extends javafx.application.Application {
         Menu hr = new Menu("HR");
         MenuItem stanowiska = new MenuItem("Stanowiska");
         stanowiska.setOnAction(event -> tabs.open(StanowiskaScreen.class));
-        hr.getItems().add(stanowiska);
+
+        MenuItem pracownicy = new MenuItem("Pracownicy");
+        pracownicy.setOnAction(event -> tabs.open(PracownicyScreen.class));
+        hr.getItems().addAll(stanowiska, pracownicy);
 
         Menu zarzadzanieLokalami = new Menu("Zarzadzanie lokalami");
         MenuItem lokale = new MenuItem("Lokale");
         lokale.setOnAction(event -> tabs.open(LokaleScreen.class));
-        zarzadzanieLokalami.getItems().add(lokale);
 
-        MenuItem pracownicy = new MenuItem("Pracownicy");
-        pracownicy.setOnAction(event -> tabs.open(PracownicyScreen.class));
-        zarzadzanieLokalami.getItems().add(pracownicy);
+        MenuItem zapasy = new MenuItem("Zapasy");
+        zapasy.setOnAction(event -> tabs.open(ZapasyScreen.class));
+
+        zarzadzanieLokalami.getItems().addAll(lokale, zapasy);
 
         Menu menu = new Menu("Menu");
         MenuItem skladniki = new MenuItem("Skladniki");

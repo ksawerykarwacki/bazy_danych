@@ -53,12 +53,12 @@ CREATE TABLE skladniki (
 );
 
 CREATE TABLE zapasy (
-    lokal     NUMBER(5, 0),
+    lokal_id     NUMBER(5, 0),
     skladnik_id  NUMBER(4, 0),
     ilosc     NUMBER(4, 2) NOT NULL,
-    PRIMARY KEY ( lokal,
+    PRIMARY KEY ( lokal_id,
                   skladnik_id ),
-    FOREIGN KEY ( lokal )
+    FOREIGN KEY ( lokal_id )
         REFERENCES lokale ( id )
             ON DELETE CASCADE,
     FOREIGN KEY ( skladnik_id )
