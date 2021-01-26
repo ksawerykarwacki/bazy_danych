@@ -103,14 +103,14 @@ CREATE TABLE zamowione_jedzenie (
 );
 
 CREATE TABLE sklad_dan (
-    danie     NUMBER(3, 0),
-    skladnik  NUMBER(4, 0),
-    PRIMARY KEY ( danie,
-                  skladnik ),
-    FOREIGN KEY ( danie )
+    danie_id     NUMBER(3, 0),
+    skladniki_id  NUMBER(4, 0),
+    PRIMARY KEY ( danie_id,
+                  skladniki_id ),
+    FOREIGN KEY ( danie_id )
         REFERENCES dania ( id )
             ON DELETE CASCADE,
-    FOREIGN KEY ( skladnik )
+    FOREIGN KEY ( skladniki_id )
         REFERENCES skladniki ( id )
             ON DELETE CASCADE
 );
