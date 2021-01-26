@@ -1,5 +1,6 @@
 package database.application;
 
+import database.application.dostawcy.DostawcyScreen;
 import database.application.lokale.LokaleScreen;
 import database.application.praownicy.PracownicyScreen;
 import database.application.skladniki.SkladnikiScreen;
@@ -71,7 +72,10 @@ public class Application extends javafx.application.Application {
         Menu menu = new Menu("Menu");
         MenuItem skladniki = new MenuItem("Skladniki");
         skladniki.setOnAction(event -> tabs.open(SkladnikiScreen.class));
-        menu.getItems().add(skladniki);
+
+        MenuItem dostawcy = new MenuItem("Dostawcy");
+        dostawcy.setOnAction(event -> tabs.open(DostawcyScreen.class));
+        menu.getItems().addAll(skladniki, dostawcy);
 
         menuBar.getMenus().addAll(hr, zarzadzanieLokalami, menu);
         //menu = new VBox(label, stanowiska);

@@ -17,4 +17,9 @@ public class Skladnik {
     String jednostka;
     Boolean wegetarianski;
     Boolean bezglutenowy;
+
+    @Override
+    public String toString() {
+        return this.skladnik;
+    }
 }

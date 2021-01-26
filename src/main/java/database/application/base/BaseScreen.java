@@ -20,7 +20,7 @@ import javafx.scene.layout.GridPane;
 
 import java.util.Arrays;
 
-public abstract class BaseScreen<T, R extends CrudRepository<T, Integer>, E extends BaseEditScreen<T, R>> extends GridPane {
+public abstract class BaseScreen<T, R extends CrudRepository<T, ?>, E extends BaseEditScreen<T, R>> extends GridPane {
     Class<E> eClass;
     protected Tabs tabs;
     protected R repository;

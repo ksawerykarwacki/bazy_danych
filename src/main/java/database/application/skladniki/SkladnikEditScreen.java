@@ -46,7 +46,13 @@ public class SkladnikEditScreen extends BaseEditScreen<Skladnik, SkladnikiReposi
 
     @Override
     public void loadData(Skladnik object) {
+        this.skladnik = object;
+        nazwa.setText(object.getSkladnik());
+        jednostka.setText(object.getJednostka());
+        wegetarianski.setSelected(object.getWegetarianski());
+        bezglutenowy.setSelected(object.getBezglutenowy());
 
+        this.setText(object.getSkladnik());
     }
 
     @Override
@@ -61,7 +67,7 @@ public class SkladnikEditScreen extends BaseEditScreen<Skladnik, SkladnikiReposi
             } else {
                 repository.update(skladnik);
             }
-            tabs.open(StanowiskaScreen.class);
+            tabs.open(SkladnikiScreen.class);
             tabs.getTabs().remove(this);
         };
     }

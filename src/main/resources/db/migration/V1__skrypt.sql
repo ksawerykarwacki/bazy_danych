@@ -15,7 +15,7 @@ CREATE TABLE lokale (
     adres                 VARCHAR2(60) NOT NULL,
     miasto                VARCHAR2(60) NOT NULL,
     kod_pocztowy          VARCHAR2(6) NOT NULL,
-    powierzchnia_w_m2     NUMBER(4, 2) NOT NULL,
+    powierzchnia_w_m2     NUMBER(6, 2) NOT NULL,
     miejsca_dla_klientow  NUMBER(4, 0) NOT NULL,
     PRIMARY KEY ( id )
 );
@@ -54,14 +54,14 @@ CREATE TABLE skladniki (
 
 CREATE TABLE zapasy (
     lokal     NUMBER(5, 0),
-    skladnik  NUMBER(4, 0),
+    skladnik_id  NUMBER(4, 0),
     ilosc     NUMBER(4, 2) NOT NULL,
     PRIMARY KEY ( lokal,
-                  skladnik ),
+                  skladnik_id ),
     FOREIGN KEY ( lokal )
         REFERENCES lokale ( id )
             ON DELETE CASCADE,
-    FOREIGN KEY ( skladnik )
+    FOREIGN KEY ( skladnik_id )
         REFERENCES skladniki ( id )
             ON DELETE CASCADE
 );
@@ -116,12 +116,12 @@ CREATE TABLE sklad_dan (
 );
 
 CREATE TABLE dostawcy_skladnikow (
-    skladnik  NUMBER(4, 0),
+    skladnik_id  NUMBER(4, 0),
     dostawca  VARCHAR2(50),
-    cena      NUMBER(4, 0) NOT NULL,
-    PRIMARY KEY ( skladnik,
+    cena      NUMBER(6, 2) NOT NULL,
+    PRIMARY KEY ( skladnik_id,
                   dostawca ),
-    FOREIGN KEY ( skladnik )
+    FOREIGN KEY ( skladnik_id )
         REFERENCES skladniki ( id )
             ON DELETE CASCADE
 );

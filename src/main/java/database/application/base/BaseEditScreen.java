@@ -14,7 +14,7 @@ import javafx.scene.layout.GridPane;
 import javax.inject.Inject;
 
 @Prototype
-public abstract class BaseEditScreen<T, R extends CrudRepository<T, Integer>> extends Tab {
+public abstract class BaseEditScreen<T, R extends CrudRepository<T, ?>> extends Tab {
 
     @Inject
     protected Tabs tabs;
