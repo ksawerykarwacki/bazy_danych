@@ -57,11 +57,11 @@ public abstract class BaseScreen<T, R extends CrudRepository<T, ?>, E extends Ba
     }
 
     protected void addButtons() {
-        for(String name : Arrays.asList("add", "edit", "delete")) {
+        for(String name : Arrays.asList("Dodaj", "Edytuj", "Usun")) {
             Button b = new Button(name);
             flowPane.getChildren().add(b);
 
-            if(name.equals("add")) {
+            if(name.equals("Dodaj")) {
                 b.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
@@ -71,7 +71,7 @@ public abstract class BaseScreen<T, R extends CrudRepository<T, ?>, E extends Ba
                     }
                 });
             }
-            else if(name.equals("edit")) {
+            else if(name.equals("Edytuj")) {
                 b.disableProperty().bind(Bindings.isEmpty(table.getSelectionModel().getSelectedItems()));
                 b.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
@@ -86,7 +86,7 @@ public abstract class BaseScreen<T, R extends CrudRepository<T, ?>, E extends Ba
                     }
                 });
             }
-            else if(name.equals("delete")) {
+            else if(name.equals("Usun")) {
                 b.disableProperty().bind(Bindings.isEmpty(table.getSelectionModel().getSelectedItems()));
                 b.setOnAction(event -> {
                     ObservableList<T> list = table.getSelectionModel().getSelectedItems();

@@ -20,4 +20,9 @@ public class Danie {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "sklad_dan")
     List<Skladnik> skladniki;
+
+    @Override
+    public String toString() {
+        return danie;
+    }
 }

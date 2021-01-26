@@ -10,6 +10,8 @@ CREATE SEQUENCE id_zamowienia_na_dowoz_seq MINVALUE 1 MAXVALUE 10000000 START WI
 
 CREATE SEQUENCE id_dania_seq MINVALUE 1 MAXVALUE 1000 START WITH 1 INCREMENT BY 1 NOCYCLE ORDER;
 
+CREATE SEQUENCE id_zamowione_jedzenie_seq MINVALUE 1 MAXVALUE 1000 START WITH 1 INCREMENT BY 1 NOCYCLE ORDER;
+
 CREATE TABLE lokale (
     id                    NUMBER(5, 0),
     adres                 VARCHAR2(60) NOT NULL,
@@ -70,13 +72,13 @@ CREATE TABLE zamowienia_na_dowoz (
     id                NUMBER(7, 0),
     adres             VARCHAR2(60) NOT NULL,
     miasto            VARCHAR2(60) NOT NULL,
-    najblizszy_lokal  NUMBER(5, 0) NOT NULL,
-    dostawca          NUMBER(7, 0) NOT NULL,
+    najblizszy_lokal_id  NUMBER(5, 0) NOT NULL,
+    dostawca_id          NUMBER(7, 0) NOT NULL,
     PRIMARY KEY ( id ),
-    FOREIGN KEY ( najblizszy_lokal )
+    FOREIGN KEY ( najblizszy_lokal_id )
         REFERENCES lokale ( id )
             ON DELETE CASCADE,
-    FOREIGN KEY ( dostawca )
+    FOREIGN KEY ( dostawca_id )
         REFERENCES pracownicy ( id )
             ON DELETE CASCADE
 );
@@ -89,15 +91,15 @@ CREATE TABLE dania (
 );
 
 CREATE TABLE zamowione_jedzenie (
-    zamowienie  NUMBER(7, 0),
-    danie       NUMBER(3, 0),
+    id  NUMBER(7, 0),
+    zamowienie_id   NUMBER(7,0),
+    danie_id       NUMBER(3, 0),
     ilosc       NUMBER(2, 0),
-    PRIMARY KEY ( zamowienie,
-                  danie ),
-    FOREIGN KEY ( zamowienie )
+    PRIMARY KEY ( id ),
+    FOREIGN KEY ( zamowienie_id )
         REFERENCES zamowienia_na_dowoz ( id )
-            ON DELETE CASCADE,
-    FOREIGN KEY ( danie )
+        ON DELETE CASCADE,
+    FOREIGN KEY ( danie_id )
         REFERENCES dania ( id )
             ON DELETE CASCADE
 );

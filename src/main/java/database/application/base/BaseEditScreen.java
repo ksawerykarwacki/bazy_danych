@@ -34,7 +34,7 @@ public abstract class BaseEditScreen<T, R extends CrudRepository<T, ?>> extends 
     protected abstract EventHandler<ActionEvent> save();
 
     protected Button getSaveButton() {
-        Button save = new Button("Save");
+        Button save = new Button("Zapisz");
         save.setOnAction(save());
         return  save;
     }

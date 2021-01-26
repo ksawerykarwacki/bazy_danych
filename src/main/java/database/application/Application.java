@@ -7,6 +7,7 @@ import database.application.praownicy.PracownicyScreen;
 import database.application.skladniki.SkladnikiScreen;
 import database.application.stanowiska.StanowiskaScreen;
 import database.application.tabs.Tabs;
+import database.application.zamowienia.ZamowieniaScreen;
 import database.application.zapasy.ZapasyScreen;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.runtime.Micronaut;
@@ -33,7 +34,7 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Hello World!");
+        stage.setTitle("Zarzadzanie restauracjami");
         this.applicationContext = Micronaut.run(Application.class);
         GridPane root = applicationContext.getBean(StanowiskaScreen.class);
         generateScene();
@@ -72,7 +73,10 @@ public class Application extends javafx.application.Application {
         MenuItem zapasy = new MenuItem("Zapasy");
         zapasy.setOnAction(event -> tabs.open(ZapasyScreen.class));
 
-        zarzadzanieLokalami.getItems().addAll(lokale, zapasy);
+        MenuItem zamowienia = new MenuItem("Zamowienia");
+        zamowienia.setOnAction(event -> tabs.open(ZamowieniaScreen.class));
+
+        zarzadzanieLokalami.getItems().addAll(lokale, zapasy, zamowienia);
 
         Menu menu = new Menu("Menu");
         MenuItem skladniki = new MenuItem("Skladniki");

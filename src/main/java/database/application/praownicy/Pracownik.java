@@ -24,4 +24,9 @@ public class Pracownik {
     @ManyToOne(fetch = FetchType.EAGER)
     Stanowisko stanowisko;
     LocalDate dataZatrudnienia;
+
+    @Override
+    public String toString() {
+        return getImie() + " " + getNazwisko();
+    }
 }
