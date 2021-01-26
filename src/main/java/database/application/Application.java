@@ -2,6 +2,7 @@ package database.application;
 
 import database.application.lokale.LokaleScreen;
 import database.application.praownicy.PracownicyScreen;
+import database.application.skladniki.SkladnikiScreen;
 import database.application.stanowiska.StanowiskaScreen;
 import database.application.tabs.Tabs;
 import io.micronaut.context.ApplicationContext;
@@ -67,7 +68,12 @@ public class Application extends javafx.application.Application {
         pracownicy.setOnAction(event -> tabs.open(PracownicyScreen.class));
         zarzadzanieLokalami.getItems().add(pracownicy);
 
-        menuBar.getMenus().addAll(hr, zarzadzanieLokalami);
+        Menu menu = new Menu("Menu");
+        MenuItem skladniki = new MenuItem("Skladniki");
+        skladniki.setOnAction(event -> tabs.open(SkladnikiScreen.class));
+        menu.getItems().add(skladniki);
+
+        menuBar.getMenus().addAll(hr, zarzadzanieLokalami, menu);
         //menu = new VBox(label, stanowiska);
 
         wrapper = new VBox(menuBar, tabs);
