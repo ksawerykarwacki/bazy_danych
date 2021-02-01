@@ -1,9 +1,8 @@
-package database.application.praownicy;
+package database.application.pracownicy;
 
 import database.application.base.BaseEditScreen;
 import database.application.lokale.Lokal;
 import database.application.lokale.LokaleRepository;
-import database.application.lokale.LokaleScreen;
 import database.application.stanowiska.StanowiskaRepository;
 import database.application.stanowiska.Stanowisko;
 import io.micronaut.context.annotation.Prototype;
@@ -13,11 +12,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.util.StringConverter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -49,13 +46,18 @@ public class PracownikEditScreen extends BaseEditScreen<Pracownik, PracownicyRep
 
         pracownik = new Pracownik();
         imie = new TextField();
+        imie.setId("imie");
         nazwisko = new TextField();
+        nazwisko.setId("nazwisko");
         dataZatrudnienia = new DatePicker();
+        dataZatrudnienia.setId("dataZatrudnienia");
         lokal = new ComboBox<>();
+        lokal.setId("lokal");
         lokal.getItems().addAll(StreamSupport.stream(lokaleRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList()));
 
         stanowisko = new ComboBox<>();
+        stanowisko.setId("stanowisko");
         stanowisko.getItems().addAll( StreamSupport.stream(stanowiskaRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList()));
 

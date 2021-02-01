@@ -10,9 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.util.converter.IntegerStringConverter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 
+@Slf4j
 @Prototype
 public class LokalEditScreen extends BaseEditScreen<Lokal, LokaleRepository> {
 
@@ -24,10 +26,15 @@ public class LokalEditScreen extends BaseEditScreen<Lokal, LokaleRepository> {
     public LokalEditScreen() {
         super("Nowy lokal");
         adres = new TextField();
+        adres.setId("adres");
         miasto = new TextField();
+        miasto.setId("miasto");
         kodPocztowy = new TextField();
+        kodPocztowy.setId("kodPocztowy");
         powierzchnia = new TextField();
+        powierzchnia.setId("powierzchnia");
         miejsca = new TextField();
+        miejsca.setId("miejsca");
 
         lokal = new Lokal();
 

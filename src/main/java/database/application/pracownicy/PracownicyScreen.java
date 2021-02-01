@@ -1,4 +1,4 @@
-package database.application.praownicy;
+package database.application.pracownicy;
 
 import com.google.common.base.CaseFormat;
 import database.application.base.BaseScreen;

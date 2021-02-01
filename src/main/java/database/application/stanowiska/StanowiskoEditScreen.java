@@ -34,18 +34,18 @@ public class StanowiskoEditScreen extends BaseEditScreen<Stanowisko, StanowiskaR
         grid.add(stanowiskoLabel, 0, 0);
 
         stanowiskoField = new TextField();
+        stanowiskoField.setId("stanowisko");
         grid.add(stanowiskoField, 1, 0);
 
         Label wynagrodzenieLabel = new Label("Wynagrodzenie");
         grid.add(wynagrodzenieLabel, 0, 1);
 
         wynagrodzenieField = new TextField();
+        wynagrodzenieField.setId("wynagrodzenie");
         wynagrodzenieField.setTextFormatter(new DecimalTextFormatter(0, 2, false));
         grid.add(wynagrodzenieField, 1, 1);
 
-
-
-        grid.add(getSaveButton(), 4, 4);
+        grid.add(getSaveButton(), 2, 4);
     }
 
     @Override

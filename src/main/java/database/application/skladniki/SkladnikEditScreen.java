@@ -25,9 +25,13 @@ public class SkladnikEditScreen extends BaseEditScreen<Skladnik, SkladnikiReposi
         super("Nowy skladnik");
         skladnik = new Skladnik();
         nazwa = new TextField();
+        nazwa.setId("nazwa");
         jednostka = new TextField();
+        jednostka.setId("jednostka");
         wegetarianski = new CheckBox();
+        wegetarianski.setId("wegetarianski");
         bezglutenowy = new CheckBox();
+        bezglutenowy.setId("bezglutenowy");
 
         grid.add(new Label("Nazwa"), 0, 0);
         grid.add(nazwa, 1, 0);

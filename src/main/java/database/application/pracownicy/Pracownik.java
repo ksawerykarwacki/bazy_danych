@@ -1,4 +1,4 @@
-package database.application.praownicy;
+package database.application.pracownicy;
 
 import database.application.lokale.Lokal;
 import database.application.stanowiska.Stanowisko;
@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @Entity

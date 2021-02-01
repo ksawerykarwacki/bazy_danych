@@ -3,7 +3,7 @@ package database.application;
 import database.application.dania.DaniaScreen;
 import database.application.dostawcy.DostawcyScreen;
 import database.application.lokale.LokaleScreen;
-import database.application.praownicy.PracownicyScreen;
+import database.application.pracownicy.PracownicyScreen;
 import database.application.skladniki.SkladnikiScreen;
 import database.application.stanowiska.StanowiskaScreen;
 import database.application.tabs.Tabs;
@@ -11,16 +11,11 @@ import database.application.zamowienia.ZamowieniaScreen;
 import database.application.zapasy.ZapasyScreen;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.runtime.Micronaut;
-import javafx.event.EventHandler;
-import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
-
-import java.time.LocalDate;
 
 @Slf4j
 public class Application extends javafx.application.Application {

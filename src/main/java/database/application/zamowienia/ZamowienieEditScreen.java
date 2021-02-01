@@ -3,18 +3,16 @@ package database.application.zamowienia;
 import database.application.EditCell;
 import database.application.base.BaseEditScreen;
 import database.application.dania.DaniaRepository;
-import database.application.dania.DaniaScreen;
 import database.application.dania.Danie;
 import database.application.lokale.Lokal;
 import database.application.lokale.LokaleRepository;
-import database.application.praownicy.PracownicyRepository;
-import database.application.praownicy.Pracownik;
+import database.application.pracownicy.PracownicyRepository;
+import database.application.pracownicy.Pracownik;
 import io.micronaut.context.annotation.Prototype;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
 import javafx.util.converter.IntegerStringConverter;
 import lombok.extern.slf4j.Slf4j;
@@ -53,14 +51,19 @@ public class ZamowienieEditScreen extends BaseEditScreen<Zamowienie, ZamowieniaR
 
         zamowienie = new Zamowienie();
         adres = new TextField();
+        adres.setId("adres");
         miasto = new TextField();
+        miasto.setId("miasto");
         lokal = new ComboBox<>();
+        lokal.setId("lokal");
         lokal.getItems().addAll(StreamSupport.stream(lokaleRepository.findAll().spliterator(), false).collect(Collectors.toList()));
         lokal.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> filterDostawcy(newValue));
         dostawca = new ComboBox<>();
+        dostawca.setId("dostawca");
         dostawca.getItems().addAll(StreamSupport.stream(pracownicyRepository.findAll().spliterator(), false).collect(Collectors.toList()));
 
         zamowioneJedzenie = new TableView<>();
+        zamowioneJedzenie.setId("zamowioneJedzenie");
         zamowioneJedzenie.setPrefHeight(100);
         zamowioneJedzenie.setEditable(true);
         for(String columnName : Arrays.asList("Danie", "Ilosc")) {
@@ -76,6 +79,7 @@ public class ZamowienieEditScreen extends BaseEditScreen<Zamowienie, ZamowieniaR
         ((TableColumn<ZamowioneJedzenie, Integer>) zamowioneJedzenie.getColumns().get(1)).setOnEditCommit(event -> event.getRowValue().setIlosc(event.getNewValue()));
 
         danie = new ComboBox<>();
+        danie.setId("danie");
         danie.getItems().addAll(StreamSupport.stream(daniaRepository.findAll().spliterator(), false).collect(Collectors.toList()));
 
         Button addDanie = new Button("Dodaj");

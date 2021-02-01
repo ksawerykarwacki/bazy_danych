@@ -2,11 +2,9 @@ package database.application.dostawcy;
 
 import database.application.DecimalTextFormatter;
 import database.application.base.BaseEditScreen;
-import database.application.praownicy.PracownicyScreen;
 import database.application.skladniki.Skladnik;
 import database.application.skladniki.SkladnikiRepository;
 import io.micronaut.context.annotation.Prototype;
-import io.micronaut.core.util.StreamUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
@@ -36,9 +34,12 @@ public class DostawcaEditScreen extends BaseEditScreen<Dostawca, DostawcyReposit
 
         dostawca = new Dostawca();
         nazwa = new TextField();
+        nazwa.setId("nazwa");
         cena = new TextField();
+        cena.setId("cena");
         cena.setTextFormatter(new DecimalTextFormatter(0, 2, false));
         skladnik = new ComboBox<>();
+        skladnik.setId("skladnik");
 
         skladnik.getItems().addAll(StreamSupport.stream(skladnikiRepository.findAll().spliterator(), false).collect(Collectors.toList()));
 

@@ -1,12 +1,10 @@
 package database.application.zamowienia;
 
-import database.application.dania.Danie;
 import database.application.lokale.Lokal;
-import database.application.praownicy.Pracownik;
+import database.application.pracownicy.Pracownik;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashMap;
 import java.util.List;
 
 @Data

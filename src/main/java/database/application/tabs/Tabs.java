@@ -1,8 +1,6 @@
 package database.application.tabs;
 
-import database.application.Application;
 import database.application.base.BaseScreen;
-import database.application.stanowiska.StanowiskaScreen;
 import io.micronaut.context.ApplicationContext;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;

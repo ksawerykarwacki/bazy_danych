@@ -36,12 +36,15 @@ public class DanieEditScreen extends BaseEditScreen<Danie, DaniaRepository> {
         this.skladnikiRepository = skladnikiRepository;
         danie = new Danie();
         nazwa = new TextField();
+        nazwa.setId("nazwa");
         cena = new TextField();
+        cena.setId("cena");
         cena.setTextFormatter(new DecimalTextFormatter(0, 2, false));
         skladniki = new ListView<>();
+        skladniki.setId("skladniki");
         skladniki.setPrefHeight(100);
         skladnik = new ComboBox<>();
-
+        skladnik.setId("skladnik");
         skladnik.getItems().addAll(StreamSupport.stream(skladnikiRepository.findAll().spliterator(), false).collect(Collectors.toList()));
 
         grid.add(new Label("Nazwa"), 0, 0);

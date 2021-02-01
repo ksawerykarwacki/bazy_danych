@@ -40,11 +40,14 @@ public class ZapasEditScreen extends BaseEditScreen<Zapas, ZapasRepository> {
 
         zapas = new Zapas();
         lokal = new ComboBox<>();
+        lokal.setId("lokal");
         lokal.getItems().addAll(StreamSupport.stream(lokaleRepository.findAll().spliterator(), false).collect(Collectors.toList()));
         skladnik = new ComboBox<>();
+        skladnik.setId("skladnik");
         skladnik.getItems().addAll(StreamSupport.stream(skladnikiRepository.findAll().spliterator(), false).collect(Collectors.toList()));
 
         ilosc = new TextField();
+        ilosc.setId("ilosc");
         ilosc.setTextFormatter(new DecimalTextFormatter(0, 2, false));
 
         grid.add(new Label("Lokal"), 0, 0);

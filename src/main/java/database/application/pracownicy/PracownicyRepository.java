@@ -1,4 +1,4 @@
-package database.application.praownicy;
+package database.application.pracownicy;
 
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
